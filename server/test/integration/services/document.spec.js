@@ -37,10 +37,10 @@ describe('document service', () => {
   const rootPath = `${process.env.PWD}/server/test/integration/testdata`;
   const documentService = createDocumentService(rootPath, fakeLogger());
 
-  it('should list the folders in the root folder specified', () => {
+  it('lists the folders in the root folder specified', () => {
     const expectedResult = ['2017_01', '2017_02'];
 
-    return documentService.getFolderList()
+    return documentService.getFoldersList()
       .then(res => res.must.eql(expectedResult));
   });
 });

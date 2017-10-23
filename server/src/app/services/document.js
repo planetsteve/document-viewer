@@ -1,21 +1,27 @@
 'use strict';
 const fs = require('fs');
 const Promise = require('bluebird');
-Promise.promisifyAll(fs);
-
-// todo: remove the PromisifyAll and write our own promise wrappers for file system
 
 module.exports = createDocumentService;
+
+// todo: what are we going to log?
 
 function createDocumentService(rootPath, createLogger) {
   const logger = createLogger(module);
 
   return {
-    getFolderList
+    getFoldersList
   };
 
-  function getFolderList() {
-    return fs.readdirAsync(rootPath, 'utf8')
-      .tap(res => logger.info('Folder list requested: ', res));
+  function getFoldersList() {
+    return new Promise((resolve, reject) => {
+      fs.readdir(rootPath, 'utf8', (err, files) => {
+        if (err) {
+          reject(err);  // todo: think about the rv here for sad paths
+        }
+        resolve(files);
+      });
+    });
   }
 }
+
