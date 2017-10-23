@@ -1,0 +1,32 @@
+{
+  "name": "document-viewer",
+  "version": "1.0.0",
+  "description": "simple web file viewer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/src/bootstrap.js",
+    "lint": "eslint server/ --fix",
+    "unitTest": "mocha --recursive \"./server/test/unit/**/*.spec.js\"",
+    "integrationTest": "mocha --recursive \"./server/test/integration/**/*.spec.js\"",
+    "test": "npm run lint && npm run unitTest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/planetsteve/document-viewer.git"
+  },
+  "author": "stevep",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "convict": "^3.0.0",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "simple-node-logger": "^0.93.17"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "mocha": "^3.2.0",
+    "must": "^0.13.4",
+    "supertest": "^3.0.0"
+  }
+}
