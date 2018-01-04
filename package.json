@@ -2,6 +2,9 @@
   "name": "document-viewer",
   "version": "1.0.0",
   "description": "simple web file viewer",
+  "engines": {
+    "node": "8.9.3"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node server/src/bootstrap.js",
